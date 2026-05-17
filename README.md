@@ -1,16 +1,19 @@
-# Vadim Koenen GitHub Pages Site
+# Vadim Koenen GitHub Pages Portfolio
 
-This is a lightweight professional GitHub Pages site for Vadim Koenen, MBA.
+Professional GitHub Pages portfolio for Vadim Koenen, MBA, focused on marketing automation, RevOps, Marketo, Salesforce, 6sense ABM, demand generation operations, lifecycle marketing, campaign operations, and GTM systems.
 
-Primary site: https://vadimkoenen.com  
-GitHub Pages URL: https://vadim-koenen.github.io/
+Live site: https://vadim-koenen.github.io/
+Main portfolio: https://vadimkoenen.com
 
-## Setup
+## Site Sections
 
-Create a public GitHub repository named:
+- Home: https://vadim-koenen.github.io/
+- Resume: https://vadim-koenen.github.io/resume/
+- Marketo: https://vadim-koenen.github.io/marketo/
+- RevOps: https://vadim-koenen.github.io/revops/
+- ABM: https://vadim-koenen.github.io/abm/
+- Marketing Automation Case Study: https://vadim-koenen.github.io/case-study-marketing-automation/
+- ABM Lifecycle Case Study: https://vadim-koenen.github.io/case-study-abm-lifecycle/
+- Writing: https://vadim-koenen.github.io/writing/
 
-```text
-vadim-koenen.github.io
-```
-
-Upload the files in this folder to the repository root, then enable GitHub Pages from the main branch/root folder if it does not publish automatically.
+This repository is maintained as a public professional portfolio and search-friendly career asset.
