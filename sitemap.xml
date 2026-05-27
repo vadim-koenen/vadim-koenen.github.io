@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://vadim-koenen.github.io/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://vadim-koenen.github.io/resume/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://vadim-koenen.github.io/ai-gtm-asset-engine/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vadim-koenen.github.io/marketo/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vadim-koenen.github.io/revops/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://vadim-koenen.github.io/abm/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
