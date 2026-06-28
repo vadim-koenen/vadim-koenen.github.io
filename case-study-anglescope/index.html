@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AngleScope Case Study | AI Creative Intelligence App | Vadim Koenen</title>
+  <meta name="description" content="AngleScope case study by Vadim Koenen: an AI creative intelligence app for affiliate and performance marketing teams that analyzes public ad examples, clusters winning angles, and generates new creative concepts.">
+  <link rel="canonical" href="https://vadim-koenen.github.io/case-study-anglescope/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AngleScope Case Study | AI Creative Intelligence App">
+  <meta property="og:description" content="How AngleScope turns public ad examples, structured AI analysis, source adapters, and deterministic fallbacks into a practical creative intelligence workflow for performance marketing teams.">
+  <meta property="og:url" content="https://vadim-koenen.github.io/case-study-anglescope/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/vadim-koenen/anglescope/main/public/demo/anglescope-walkthrough-poster.png">
+  <meta property="og:image:alt" content="AngleScope product walkthrough preview showing the creative intelligence workbench.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/vadim-koenen/anglescope/main/public/demo/anglescope-walkthrough-poster.png">
+  <meta name="twitter:image:alt" content="AngleScope product walkthrough preview showing the creative intelligence workbench.">
+  <link rel="stylesheet" href="/assets/style.css">
+  <style>
+    .case-hero { padding-bottom: 36px; }
+    .case-hero .lede { max-width: 940px; }
+    .proof-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,253,249,.5); }
+    .demo-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: 26px; align-items: start; }
+    .demo-frame { margin: 0; }
+    .demo-frame img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 24px 70px rgba(35,31,25,.14); background: #fffdf9; }
+    .demo-frame figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+    .signal { padding: 18px; border: 1px solid var(--line); border-radius: 20px; background: #fffdf9; }
+    .signal strong { display: block; font-size: 24px; line-height: 1; letter-spacing: -.04em; margin-bottom: 8px; }
+    .signal span { color: var(--muted); font-size: 13px; line-height: 1.4; display: block; }
+    .workflow { counter-reset: workflow; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .workflow-step { counter-increment: workflow; min-height: 210px; }
+    .workflow-step:before { content: counter(workflow, decimal-leading-zero); display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 16px; background: var(--ink); color: #fff; font-weight: 760; margin-bottom: 18px; }
+    .system-map { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 22px; }
+    .system-map span { min-height: 94px; display: flex; align-items: center; justify-content: center; text-align: center; border: 1px solid var(--line); border-radius: 18px; padding: 14px; background: #fffdf9; color: var(--muted); font-weight: 700; font-size: 13px; }
+    .data-list { display: grid; gap: 10px; margin: 0; }
+    .data-list div { display: grid; grid-template-columns: 138px 1fr; gap: 16px; padding-top: 11px; border-top: 1px solid rgba(222,214,202,.72); }
+    .data-list dt { color: var(--accent-2); font-weight: 760; }
+    .data-list dd { margin: 0; color: var(--muted); }
+    .note { color: var(--muted); font-size: 14px; }
+    @media (max-width: 900px) {
+      .demo-layout, .workflow, .system-map, .signal-grid { grid-template-columns: 1fr; }
+      .data-list div { grid-template-columns: 1fr; gap: 3px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://vadim-koenen.github.io/case-study-anglescope/#webpage",
+        "url": "https://vadim-koenen.github.io/case-study-anglescope/",
+        "name": "AngleScope Case Study | AI Creative Intelligence App",
+        "description": "A case study showing how Vadim Koenen built AngleScope, an AI creative intelligence app for affiliate and performance marketing teams.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Vadim Koenen GitHub Pages Portfolio",
+          "url": "https://vadim-koenen.github.io/"
+        },
+        "about": [
+          { "@type": "SoftwareApplication", "name": "AngleScope", "applicationCategory": "BusinessApplication", "operatingSystem": "Web" },
+          { "@id": "https://vadim-koenen.github.io/#person" }
+        ],
+        "image": "https://raw.githubusercontent.com/vadim-koenen/anglescope/main/public/demo/anglescope-walkthrough-poster.png"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://vadim-koenen.github.io/#person",
+        "name": "Vadim Koenen",
+        "honorificSuffix": "MBA",
+        "url": "https://vadim-koenen.github.io/",
+        "sameAs": [
+          "https://vadimkoenen.com",
+          "https://www.linkedin.com/in/vadim-koenen-mba/",
+          "https://github.com/vadim-koenen",
+          "https://medium.com/@vadimkoenen",
+          "https://dev.to/vkoenen"
+        ],
+        "knowsAbout": [
+          "Marketing Automation",
+          "Revenue Operations",
+          "AI strategy for marketing",
+          "Performance marketing",
+          "Creative intelligence",
+          "GTM systems"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="nav-wrap">
+    <div class="container nav">
+      <a class="brand" href="/">Vadim Koenen <span>Marketing Automation · RevOps · GTM Systems</span></a>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="/">Home</a><a href="/resume/">Resume</a><a href="/marketo/">Marketo</a><a href="/revops/">RevOps</a><a href="/abm/">ABM</a><a class="active" href="/case-study-marketing-automation/">Case Studies</a></nav>
+    </div>
+  </div>
+  <main id="main">
+    <header class="hero case-hero">
+      <div class="container">
+        <div class="kicker">Featured work · AI product case study</div>
+        <h1>AngleScope turns ad-library research into a creative intelligence workflow.</h1>
+        <p class="lede">I built AngleScope for affiliate and performance marketing teams that need to find winning ad angles, understand why they work, and turn those patterns into new testable creative concepts without pretending to have private ad-account data.</p>
+        <div class="cta-row">
+          <a class="button primary" href="https://anglescope-wuov.onrender.com/">Open live demo</a>
+          <a class="button" href="https://vadim-koenen.github.io/anglescope/">Static fallback</a>
+          <a class="button" href="https://github.com/vadim-koenen/anglescope">View repo</a>
+        </div>
+        <p class="note" style="margin-top: 14px;">The Render demo is hosted on a free instance, so first load can take a moment if the service is asleep.</p>
+      </div>
+    </header>
+
+    <section class="proof-strip">
+      <div class="container demo-layout">
+        <figure class="demo-frame">
+          <img src="https://raw.githubusercontent.com/vadim-koenen/anglescope/main/public/demo/anglescope-walkthrough-poster.png" alt="AngleScope workbench walkthrough preview with ad analysis, angle clusters, and generated creative concepts." width="1280" height="720" loading="eager">
+          <figcaption>AngleScope workbench preview from the in-app walkthrough.</figcaption>
+        </figure>
+        <div>
+          <div class="kicker">What it demonstrates</div>
+          <h2>Marketing judgment, AI implementation, and data realism in one product.</h2>
+          <p>AngleScope is deliberately not a fake spend dashboard. As an outside builder, I did not have private Meta, Google, TikTok, Taboola, landing-page, or lead-quality data. So I focused on the part of the buyer workflow that can work honestly today: public ad examples, user-supplied creative, structured AI deconstruction, and evidence-backed concept generation.</p>
+          <div class="signal-grid">
+            <div class="signal"><strong>AI</strong><span>OpenAI-backed ad deconstruction and creative generation when configured.</span></div>
+            <div class="signal"><strong>Zod</strong><span>Structured schemas and deterministic fallbacks keep output usable.</span></div>
+            <div class="signal"><strong>Live</strong><span>Render deployment runs the full server-side Next.js workflow.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid two">
+        <div>
+          <div class="kicker">Problem</div>
+          <h2>Media buyers already do this manually.</h2>
+          <p>Creative angle discovery is often one of the highest-leverage parts of affiliate media buying. Buyers scroll ad libraries, save examples, look for ads that appear to keep running, infer which hooks and proof patterns are working, and translate those patterns into the next batch of tests.</p>
+          <p>That work is valuable, but it is slow, uneven, and easy to lose in screenshots and scattered notes.</p>
+        </div>
+        <div class="card pad">
+          <h3>Product thesis</h3>
+          <p>AngleScope turns that research loop into software: collect examples, classify what is happening, cluster recurring angles, rank them with evidence, and generate offer-specific concepts that a buyer can actually test.</p>
+          <p>The goal is not to replace the operator. The goal is to give the operator a sharper starting point.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="kicker">Workflow</div>
+        <h2>From public examples to creative concepts.</h2>
+        <div class="workflow" style="margin-top: 24px;">
+          <article class="tile workflow-step"><h3>Search</h3><p>Enter a vertical, competitor, or keyword, or provide a manual ad media URL for the analysis run.</p></article>
+          <article class="tile workflow-step"><h3>Ingest</h3><p>Load validated seed examples and best-effort public examples from TikTok Creative Center when the server app is running.</p></article>
+          <article class="tile workflow-step"><h3>Deconstruct</h3><p>Classify hooks, emotional angles, formats, offer mechanics, CTAs, claims, and compliance risk.</p></article>
+          <article class="tile workflow-step"><h3>Cluster</h3><p>Group recurring winning angles and rank them with evidence from source ads and strength scoring.</p></article>
+          <article class="tile workflow-step"><h3>Generate</h3><p>Turn selected angles and offer details into new creative concepts, copy, briefs, and image direction.</p></article>
+          <article class="tile workflow-step"><h3>Export</h3><p>Make the output usable outside the demo with JSON and CSV export paths.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip">
+      <div class="container">
+        <div class="kicker">Architecture</div>
+        <h2>Built as a real product surface, not a one-off prompt demo.</h2>
+        <div class="system-map">
+          <span>Next.js App Router + TypeScript</span>
+          <span>Tailwind UI workbench</span>
+          <span>Zod schemas for API and model output</span>
+          <span>Source adapters for seed, manual, and TikTok data</span>
+          <span>Prisma + Postgres persistence scaffold</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid two">
+        <div class="card pad">
+          <h3>Build decisions that matter</h3>
+          <ul class="clean">
+            <li>Kept private spend, ROAS, and lead-quality claims out of the demo because those require internal credentials.</li>
+            <li>Used source adapters so public, seeded, manual, and future private data can follow the same analysis contract.</li>
+            <li>Constrained AI behind structured schemas and deterministic fallbacks so the workflow remains demoable when APIs fail.</li>
+            <li>Designed the UI around the operator loop: search, inspect, choose an angle, generate concepts, and export.</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3>Current live build bar</h3>
+          <dl class="data-list">
+            <div><dt>Demo</dt><dd>Full server-side Next.js app deployed on Render.</dd></div>
+            <div><dt>Sources</dt><dd>Seed examples, manual ad URL input, and best-effort TikTok Creative Center ingestion.</dd></div>
+            <div><dt>AI path</dt><dd>OpenAI-backed visual and metadata deconstruction plus structured generation when configured.</dd></div>
+            <div><dt>Fallbacks</dt><dd>Deterministic, evidence-grounded concepts and a static GitHub Pages fallback.</dd></div>
+            <div><dt>Output</dt><dd>Ranked angle clusters, creative concepts, briefs, copy, image direction, JSON, and CSV.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container grid two">
+        <div>
+          <div class="kicker">What I would build next</div>
+          <h2>Close the loop between creative intelligence and business outcomes.</h2>
+          <p>The next version would connect internal performance data so AngleScope can learn from actual winners and losers, not only public examples. That means joining ad creative attributes to ROAS, CPL, lead quality, approval risk, and funnel drop-off.</p>
+          <p>From there, it becomes a creative operating system: discover public winners, deconstruct internal winners, generate compliant variants, match each angle to landing-page or advertorial treatments, and recommend the next tests based on observed performance.</p>
+        </div>
+        <div class="card pad">
+          <h3>Near-term roadmap</h3>
+          <ul class="clean">
+            <li>Persist analysis runs and generated concepts in Postgres.</li>
+            <li>Harden the TikTok adapter with cached snapshots and monitoring.</li>
+            <li>Add Meta Ad Library as the next source adapter.</li>
+            <li>Upgrade manual URL input to stored uploads.</li>
+            <li>Add compliance pre-flight checks for risky claims.</li>
+            <li>Create weekly angle-opportunity reports for the buying team.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip">
+      <div class="container grid two">
+        <div>
+          <div class="kicker">Portfolio fit</div>
+          <h2>Why this belongs next to RevOps and AI GTM systems work.</h2>
+        </div>
+        <div>
+          <p>AngleScope is useful as featured work because it shows the same operating pattern behind strong GTM systems: understand the real workflow, define the data boundaries, build a repeatable system, and keep the output practical enough for an operator to use.</p>
+          <div class="cta-row">
+            <a class="button primary" href="https://anglescope-wuov.onrender.com/">Try AngleScope</a>
+            <a class="button" href="/ai-gtm-asset-engine/">AI GTM Asset Engine</a>
+            <a class="button" href="/case-study-marketing-automation/">Marketing automation case study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div>© 2026 Vadim Koenen, MBA. AI creative intelligence, marketing automation, RevOps, and GTM systems.</div>
+      <div><a href="https://vadimkoenen.com">Main portfolio</a> · <a href="https://github.com/vadim-koenen">GitHub</a> · <a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+  </footer>
+</body>
+</html>

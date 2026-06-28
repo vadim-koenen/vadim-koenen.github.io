@@ -9,11 +9,13 @@ Main portfolio: https://vadimkoenen.com
 
 - Home: https://vadim-koenen.github.io/
 - Resume: https://vadim-koenen.github.io/resume/
+- AI GTM Asset Engine: https://vadim-koenen.github.io/ai-gtm-asset-engine/
 - Marketo: https://vadim-koenen.github.io/marketo/
 - RevOps: https://vadim-koenen.github.io/revops/
 - ABM: https://vadim-koenen.github.io/abm/
 - Marketing Automation Case Study: https://vadim-koenen.github.io/case-study-marketing-automation/
 - ABM Lifecycle Case Study: https://vadim-koenen.github.io/case-study-abm-lifecycle/
+- AngleScope Case Study: https://vadim-koenen.github.io/case-study-anglescope/
 - Writing: https://vadim-koenen.github.io/writing/
 
 This repository is maintained as a public professional portfolio and search-friendly career asset.
