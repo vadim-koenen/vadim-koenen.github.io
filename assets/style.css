@@ -80,8 +80,11 @@ ul.clean li:before { content:'•'; position:absolute; left:0; color: var(--acce
 .hubspot-flow span:nth-child(2) { background:var(--accent); }
 .hubspot-flow span:nth-child(3) { background:#3b7bd6; }
 .hubspot-grid { margin-top:20px; }
+.hubspot-intake-heading { margin-top:28px; padding-top:26px; border-top:1px solid var(--line); }
+.hubspot-intake-heading p { max-width:760px; color:var(--muted); }
 .hubspot-embed-grid { margin-top:20px; }
 .hubspot-embed-card { min-height:260px; }
+.hubspot-meetings-card { margin-top:20px; }
 .hubspot-embed-placeholder { margin-top:18px; padding:18px; border:1px dashed rgba(138,90,68,.55); border-radius:20px; background:rgba(238,231,220,.56); }
 .hubspot-embed-placeholder p { color:var(--muted); font-size:14px; margin-bottom:0; }
 .hubspot-embed-placeholder iframe { display:block; width:100%; min-height:640px; border:0; border-radius:16px; background:#fff; }

@@ -23,10 +23,12 @@ There is no build command and no generated publish directory. Deploy previews sh
 
 ## HubSpot Phase 1: Public-Safe Frontend Integration
 
+The connected HubSpot account is currently treated as a clean/default CRM rather than a data source to publish from. Phase 1 uses the website to start creating clean HubSpot contact data instead of pulling CRM data onto the site.
+
 The Phase 1 integration is frontend-only and public-safe:
 
 - HubSpot tracking loader support in `assets/hubspot.js`
-- Public HubSpot form embed support
+- Public HubSpot form embed support for three intake paths
 - Public HubSpot meetings link/embed support
 - Homepage HubSpot highlights section
 - CTA click tracking hooks via `data-hubspot-cta`
@@ -35,6 +37,27 @@ The Phase 1 integration is frontend-only and public-safe:
 Public values such as HubSpot portal ID, public form IDs, region, and public meetings URL may be configured in `assets/hubspot-config.js`. Deploy previews are expected to render normally while those values are blank.
 
 Do not put private app tokens, OAuth secrets, API keys, or CRM write credentials in frontend JavaScript.
+
+### Phase 1 Intake Paths
+
+Create public HubSpot forms for:
+
+- HubSpot / Revenue Systems Audit
+- Book a Systems Review
+- Recruiter / Hiring Inquiry
+
+Those HubSpot-hosted forms should create/update HubSpot contacts directly through HubSpot's normal form processing. Recommended hidden or explicit fields:
+
+- `krs_inquiry_type`
+- `krs_lead_source`
+- `krs_requested_service`
+- `utm_source`
+- `utm_medium`
+- `utm_campaign`
+- `utm_content`
+- `utm_term`
+
+Keep consulting, systems-review, and hiring/recruiter intent separate from the beginning so future reporting and automation do not have to untangle mixed inquiry types.
 
 ## HubSpot Setup
 
@@ -47,11 +70,29 @@ window.KRS_HUBSPOT_CONFIG = {
     enabled: true
   },
   forms: {
-    contact: {
+    revenueSystemsAudit: {
+      label: "HubSpot / Revenue Systems Audit",
+      inquiryType: "hubspot_revenue_systems_audit",
       region: "na1",
       portalId: "12345678",
-      formId: "public-form-guid",
-      target: "#hubspot-form-target"
+      formId: "audit-public-form-guid",
+      target: "#hubspot-form-audit-target"
+    },
+    systemsReview: {
+      label: "Book a Systems Review",
+      inquiryType: "systems_review",
+      region: "na1",
+      portalId: "12345678",
+      formId: "systems-review-public-form-guid",
+      target: "#hubspot-form-systems-review-target"
+    },
+    hiringInquiry: {
+      label: "Recruiter / Hiring Inquiry",
+      inquiryType: "recruiter_hiring_inquiry",
+      region: "na1",
+      portalId: "12345678",
+      formId: "hiring-public-form-guid",
+      target: "#hubspot-form-hiring-target"
     }
   },
   meetings: {
@@ -84,9 +125,11 @@ A later, explicitly approved PR can add a server-side function:
 - Validate required fields.
 - Call HubSpot CRM APIs server-side using `process.env.HUBSPOT_PRIVATE_APP_TOKEN` or Netlify's server-side environment access.
 - Create or update a contact.
-- Optionally create or associate a company.
-- Optionally create a deal for a qualified consulting inquiry.
+- Create or associate a company when the inquiry includes enough company context.
+- Create or update lifecycle stage based on the intake path and qualification status.
+- Create a deal for a qualified consulting or systems-review inquiry.
 - Optionally create a ticket only for support-style requests.
+- Add custom KRS properties such as inquiry type, requested service, audit interest, recruiter/hiring flag, source path, and qualification notes.
 - Return a JSON response to the frontend.
 - Add rate limiting and spam protection before going live.
 

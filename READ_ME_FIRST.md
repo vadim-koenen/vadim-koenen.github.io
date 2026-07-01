@@ -21,6 +21,8 @@ Do not manually upload files as a deployment step.
 
 ## HubSpot Safety Boundary
 
-The current HubSpot integration is frontend-only. Public values such as portal ID, public form ID, and public meetings URL may be configured in `assets/hubspot-config.js`.
+The current HubSpot integration is frontend-only. Public values such as portal ID, public form IDs, and public meetings URL may be configured in `assets/hubspot-config.js`.
 
-Private HubSpot app tokens belong in Netlify environment variables for a future Netlify Functions integration. Do not commit private tokens or call private HubSpot CRM APIs from frontend JavaScript.
+Phase 1 supports three HubSpot-hosted forms: HubSpot / Revenue Systems Audit, Book a Systems Review, and Recruiter / Hiring Inquiry. Those forms should create clean HubSpot contacts through HubSpot's normal form processing.
+
+Private HubSpot app tokens belong in Netlify environment variables for a future Netlify Functions integration. Do not commit private tokens or call private HubSpot CRM APIs from frontend JavaScript. Companies, deals, lifecycle-stage updates, support tickets, and custom KRS properties belong in that later server-side phase.

@@ -11,8 +11,13 @@
   }
 
   function loadScript(id, src, onload) {
-    if (document.getElementById(id)) {
-      if (typeof onload === "function") onload();
+    const existingScript = document.getElementById(id);
+
+    if (existingScript) {
+      if (existingScript.dataset.loaded === "true" && typeof onload === "function") onload();
+      if (existingScript.dataset.loaded !== "true" && typeof onload === "function") {
+        existingScript.addEventListener("load", onload, { once: true });
+      }
       return;
     }
 
@@ -20,7 +25,12 @@
     script.id = id;
     script.src = src;
     script.async = true;
-    if (typeof onload === "function") script.onload = onload;
+    if (typeof onload === "function") {
+      script.addEventListener("load", function () {
+        script.dataset.loaded = "true";
+        onload();
+      });
+    }
     document.head.appendChild(script);
   }
 
@@ -50,21 +60,32 @@
     loadScript("hs-script-loader", "https://js.hs-scripts.com/" + portalId + ".js");
   }
 
-  const contactForm = forms.contact || {};
-  const formPortalId = contactForm.portalId || portalId;
-  const formTarget = document.querySelector(contactForm.target || "#hubspot-form-target");
+  function renderConfiguredForms() {
+    Object.keys(forms).forEach((key) => {
+      const formConfig = forms[key] || {};
+      const formPortalId = formConfig.portalId || portalId;
+      const targetSelector = formConfig.target || "";
+      const formTarget = hasValue(targetSelector) ? document.querySelector(targetSelector) : null;
 
-  if (formTarget && hasValue(formPortalId) && hasValue(contactForm.formId)) {
-    loadScript("hs-forms-v2", "https://js.hsforms.net/forms/embed/v2.js", function () {
+      if (!formTarget || !hasValue(formPortalId) || !hasValue(formConfig.formId)) return;
       if (!window.hbspt || !window.hbspt.forms) return;
 
       window.hbspt.forms.create({
-        region: contactForm.region || "na1",
+        region: formConfig.region || "na1",
         portalId: formPortalId,
-        formId: contactForm.formId,
-        target: contactForm.target || "#hubspot-form-target"
+        formId: formConfig.formId,
+        target: targetSelector
       });
     });
+  }
+
+  const hasConfiguredForm = Object.keys(forms).some((key) => {
+    const formConfig = forms[key] || {};
+    return hasValue(formConfig.formId) && hasValue(formConfig.portalId || portalId);
+  });
+
+  if (hasConfiguredForm) {
+    loadScript("hs-forms-v2", "https://js.hsforms.net/forms/embed/v2.js", renderConfiguredForms);
   }
 
   const meetingsTarget = document.querySelector(meetings.target || "#hubspot-meetings-target");

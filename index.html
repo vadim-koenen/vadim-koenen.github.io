@@ -207,20 +207,45 @@
       </article>
     </div>
 
-    <div class="grid two hubspot-embed-grid">
-      <div class="card pad hubspot-embed-card" id="hubspot-form">
-        <h3>HubSpot form-ready contact path</h3>
-        <p>When a public HubSpot portal ID and form ID are added, this block can render a HubSpot form without changing the page layout. Deploy previews stay stable while those IDs are blank.</p>
-        <div class="hubspot-embed-placeholder" id="hubspot-form-target" data-hubspot-form-target>
-          <p>HubSpot form embed is disabled until public form configuration is added in <code>assets/hubspot-config.js</code>.</p>
-        </div>
+    <div class="hubspot-intake-heading">
+      <h3>Start building clean HubSpot data from the website</h3>
+      <p>Because the CRM is still mostly default/sample data, the highest-leverage move is to route new website intent into clean HubSpot contacts through purpose-built forms.</p>
+      <div class="cta-row">
+        <a class="button" href="#hubspot-form-audit-target" data-hubspot-cta="hubspot_audit_anchor" data-hubspot-cta-label="HubSpot / Revenue Systems Audit">HubSpot / Revenue Systems Audit</a>
+        <a class="button" href="#hubspot-form-systems-review-target" data-hubspot-cta="systems_review_anchor" data-hubspot-cta-label="Book a Systems Review">Book a Systems Review</a>
+        <a class="button" href="#hubspot-form-hiring-target" data-hubspot-cta="hiring_inquiry_anchor" data-hubspot-cta-label="Recruiter / Hiring Inquiry">Recruiter / Hiring Inquiry</a>
       </div>
-      <div class="card pad hubspot-embed-card">
-        <h3>Meetings support without CRM exposure</h3>
-        <p>A public HubSpot meetings URL can be linked or embedded here. Private CRM automation stays out of frontend JavaScript and belongs in a later Netlify Functions phase.</p>
-        <div class="hubspot-embed-placeholder" id="hubspot-meetings-target" data-hubspot-meetings-target>
-          <a class="button primary" href="mailto:hello@example.com" data-hubspot-meetings-link data-hubspot-cta="hubspot_meetings_placeholder" data-hubspot-cta-label="Schedule a HubSpot systems conversation">Schedule a HubSpot systems conversation</a>
+    </div>
+
+    <div class="grid hubspot-embed-grid">
+      <article class="card pad hubspot-embed-card">
+        <h3>HubSpot / Revenue Systems Audit</h3>
+        <p>For teams that want a focused review of HubSpot, lifecycle, routing, attribution, forms, and handoff health.</p>
+        <div class="hubspot-embed-placeholder" id="hubspot-form-audit-target" data-hubspot-form-target>
+          <p>Audit form embed is disabled until the public HubSpot form ID is added in <code>assets/hubspot-config.js</code>.</p>
         </div>
+      </article>
+      <article class="card pad hubspot-embed-card">
+        <h3>Book a Systems Review</h3>
+        <p>For qualified consulting conversations around RevOps systems, marketing automation, ABM operations, and AI-enabled GTM workflows.</p>
+        <div class="hubspot-embed-placeholder" id="hubspot-form-systems-review-target" data-hubspot-form-target>
+          <p>Systems review form embed is disabled until the public HubSpot form ID is added in <code>assets/hubspot-config.js</code>.</p>
+        </div>
+      </article>
+      <article class="card pad hubspot-embed-card">
+        <h3>Recruiter / Hiring Inquiry</h3>
+        <p>For recruiters and hiring teams that need a clean way to start a conversation without mixing hiring interest into consulting pipeline.</p>
+        <div class="hubspot-embed-placeholder" id="hubspot-form-hiring-target" data-hubspot-form-target>
+          <p>Hiring inquiry form embed is disabled until the public HubSpot form ID is added in <code>assets/hubspot-config.js</code>.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="card pad hubspot-meetings-card">
+      <h3>Meetings support without CRM exposure</h3>
+      <p>A public HubSpot meetings URL can be linked or embedded here for the systems review path. Private CRM automation stays out of frontend JavaScript and belongs in a later Netlify Functions phase.</p>
+      <div class="hubspot-embed-placeholder" id="hubspot-meetings-target" data-hubspot-meetings-target>
+        <a class="button primary" href="mailto:hello@example.com" data-hubspot-meetings-link data-hubspot-cta="hubspot_meetings_placeholder" data-hubspot-cta-label="Schedule a HubSpot systems conversation">Schedule a HubSpot systems conversation</a>
       </div>
     </div>
   </div>
