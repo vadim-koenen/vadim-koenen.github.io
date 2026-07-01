@@ -112,6 +112,7 @@ window.KRS_HUBSPOT_CONFIG = {
 Future private HubSpot CRM automation must use Netlify environment variables with Functions scope.
 
 - `HUBSPOT_PRIVATE_APP_TOKEN` belongs in Netlify environment variables.
+- The Netlify Function reads the private token only from `process.env.HUBSPOT_PRIVATE_APP_TOKEN`.
 - Never commit `HUBSPOT_PRIVATE_APP_TOKEN`.
 - Never expose private tokens in frontend JavaScript.
 - Frontend code must not call private HubSpot CRM APIs directly.
@@ -144,6 +145,7 @@ Setup steps:
 5. Set optional env vars as needed:
 
 ```bash
+HUBSPOT_PORTAL_ID=244355981
 HUBSPOT_DEFAULT_OWNER_ID=
 HUBSPOT_KRS_PIPELINE_ID=
 HUBSPOT_KRS_DISCOVERY_STAGE_ID=

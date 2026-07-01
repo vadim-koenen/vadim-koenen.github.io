@@ -12,7 +12,7 @@ const ROUTES = {
   systems_review: {
     label: "Book a Systems Review",
     inquiryType: "Systems Review",
-    lifecycleStage: "marketingqualifiedlead",
+    lifecycleStage: "lead",
     consultingIntent: true,
     leadTier: "A"
   },
@@ -229,22 +229,7 @@ async function upsertContact(token, payload, route, skipped) {
   });
 
   const existingContact = await findObjectByProperty(token, "contacts", "email", payload.email, ["email"]);
-  let contact;
-
-  try {
-    contact = await writeContactStandardProperties(token, existingContact, standardProperties);
-  } catch (error) {
-    if (route.lifecycleStage === "marketingqualifiedlead" && isLifecycleStageError(error)) {
-      skipped.push("lifecyclestage_fallback_to_lead");
-      safeWarn("lifecyclestage_fallback_to_lead", { route: payload.route });
-      contact = await writeContactStandardProperties(token, existingContact, {
-        ...standardProperties,
-        lifecyclestage: "lead"
-      });
-    } else {
-      throw error;
-    }
-  }
+  const contact = await writeContactStandardProperties(token, existingContact, standardProperties);
 
   await updateOptionalContactProperties(token, contact.id, buildCustomContactProperties(payload, route), skipped);
 
@@ -526,17 +511,12 @@ function requireEnv(name) {
 }
 
 function getEnv(name) {
-  return globalThis.Netlify?.env?.get?.(name) || process.env[name] || "";
+  return process.env[name] || "";
 }
 
 function isMissingPropertyError(error) {
   const body = error.responseBody || "";
   return body.includes("PROPERTY_DOESNT_EXIST") || body.includes("property does not exist");
-}
-
-function isLifecycleStageError(error) {
-  const body = error?.responseBody || "";
-  return error instanceof HubSpotApiError && body.includes("lifecyclestage");
 }
 
 function hasValue(value) {

@@ -9,6 +9,7 @@ This document describes the server-side Phase 2 HubSpot path for `vadimkoenen.co
 - GitHub is source control only.
 - Browser JavaScript must not call private HubSpot CRM APIs.
 - `HUBSPOT_PRIVATE_APP_TOKEN` must live in Netlify environment variables, not in committed files.
+- The function reads the private token only from `process.env.HUBSPOT_PRIVATE_APP_TOKEN`.
 
 ## Netlify Function
 
@@ -41,6 +42,7 @@ HUBSPOT_PRIVATE_APP_TOKEN=
 ## Optional Environment Variables
 
 ```bash
+HUBSPOT_PORTAL_ID=244355981
 HUBSPOT_DEFAULT_OWNER_ID=
 HUBSPOT_KRS_PIPELINE_ID=
 HUBSPOT_KRS_DISCOVERY_STAGE_ID=
