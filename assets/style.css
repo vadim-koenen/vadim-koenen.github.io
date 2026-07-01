@@ -80,6 +80,12 @@ ul.clean li:before { content:'•'; position:absolute; left:0; color: var(--acce
 .hubspot-flow span:nth-child(2) { background:var(--accent); }
 .hubspot-flow span:nth-child(3) { background:#3b7bd6; }
 .hubspot-grid { margin-top:20px; }
+.hubspot-embed-grid { margin-top:20px; }
+.hubspot-embed-card { min-height:260px; }
+.hubspot-embed-placeholder { margin-top:18px; padding:18px; border:1px dashed rgba(138,90,68,.55); border-radius:20px; background:rgba(238,231,220,.56); }
+.hubspot-embed-placeholder p { color:var(--muted); font-size:14px; margin-bottom:0; }
+.hubspot-embed-placeholder iframe { display:block; width:100%; min-height:640px; border:0; border-radius:16px; background:#fff; }
+code { padding:2px 5px; border-radius:6px; background:var(--soft); color:var(--ink); font-size:.92em; }
 .footer { margin-top: 54px; padding: 36px 0; border-top:1px solid var(--line); color:var(--muted); font-size:14px; }
 .footer .container { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
 @media (max-width: 850px) {

@@ -1,0 +1,6 @@
+[build]
+  publish = "."
+
+# Static HTML site: Netlify serves the repository root.
+# Deploy previews inherit the same static publish directory and do not require
+# real HubSpot portal, form, or meetings IDs.

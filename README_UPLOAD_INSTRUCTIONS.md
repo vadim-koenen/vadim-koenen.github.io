@@ -1,52 +1,19 @@
-# GitHub Pages Expansion Upload Instructions
+# Superseded Upload Instructions
 
-This package is for the existing GitHub Pages repository:
+This repository is no longer treated as a manual GitHub Pages upload target.
 
-https://github.com/vadim-koenen/vadim-koenen.github.io
+Current deployment stack:
 
-## Upload steps
+- Source repo: `vadim-koenen/vadim-koenen.github.io`
+- Hosting and deploy previews: Netlify
+- Domain and DNS: Cloudflare
+- Production domain: https://vadimkoenen.com
 
-1. Open the repository on GitHub.
-2. Click **Add file** → **Upload files**.
-3. Drag the CONTENTS of this folder into the upload screen, not the outer folder itself.
-4. Confirm these files/folders are at the repo root:
-   - index.html
-   - assets/style.css
-   - sitemap.xml
-   - robots.txt
-   - 404.html
-   - resume/index.html
-   - marketo/index.html
-   - revops/index.html
-   - abm/index.html
-   - case-study-marketing-automation/index.html
-   - case-study-abm-lifecycle/index.html
-   - writing/index.html
-5. Commit changes.
-6. Wait 1-3 minutes, then open:
-   https://vadim-koenen.github.io/
-   https://vadim-koenen.github.io/resume/
-   https://vadim-koenen.github.io/marketo/
-   https://vadim-koenen.github.io/revops/
-   https://vadim-koenen.github.io/abm/
-   https://vadim-koenen.github.io/case-study-marketing-automation/
-   https://vadim-koenen.github.io/case-study-abm-lifecycle/
-   https://vadim-koenen.github.io/writing/
-   https://vadim-koenen.github.io/sitemap.xml
+Use the normal pull request workflow:
 
-## After upload
+1. Commit changes to a branch.
+2. Open a pull request against `main`.
+3. Review the Netlify deploy preview.
+4. Merge after approval.
 
-In Google Search Console, request indexing for:
-
-https://vadim-koenen.github.io/
-https://vadim-koenen.github.io/resume/
-https://vadim-koenen.github.io/marketo/
-https://vadim-koenen.github.io/revops/
-https://vadim-koenen.github.io/abm/
-https://vadim-koenen.github.io/case-study-marketing-automation/
-https://vadim-koenen.github.io/case-study-abm-lifecycle/
-https://vadim-koenen.github.io/writing/
-
-## Important
-
-The /writing/ page intentionally does not include your Medium URL yet because it was not provided. Send the Medium profile or article URL and the file can be updated cleanly.
+See `README.md` for the current Netlify-aware HubSpot setup, public frontend config, and Phase 2 Netlify Functions roadmap.

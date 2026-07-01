@@ -1,54 +1,26 @@
-# Vadim Koenen GitHub Fix v3
+# Deployment Notes
 
-This package fixes two separate GitHub assets:
+These notes replace the older GitHub Pages upload package instructions.
 
-1. `vadim-koenen.github.io` — the GitHub Pages website repository.
-2. `vadim-koenen` — the GitHub profile README repository.
+## Current Stack
 
-## Upload to GitHub Pages repository
+1. `vadim-koenen/vadim-koenen.github.io` is the GitHub source repository.
+2. Netlify builds and hosts the production site and deploy previews.
+3. Cloudflare manages the production domain and DNS.
+4. Production domain: https://vadimkoenen.com
 
-Repository: https://github.com/vadim-koenen/vadim-koenen.github.io
+## Current Workflow
 
-Upload everything INSIDE:
+1. Commit changes to a branch in the GitHub source repository.
+2. Open a pull request against `main`.
+3. Review the Netlify deploy preview for that pull request.
+4. Merge when the preview is approved.
+5. Netlify deploys production from `main`.
 
-`UPLOAD_THIS_TO_vadim-koenen.github.io_REPO/`
+Do not manually upload files as a GitHub Pages deployment step.
 
-Do not upload the outer folder itself.
+## HubSpot Safety Boundary
 
-This should create/update:
+The current HubSpot integration is frontend-only. Public values such as portal ID, public form ID, and public meetings URL may be configured in `assets/hubspot-config.js`.
 
-- index.html
-- assets/
-- resume/
-- marketo/
-- revops/
-- abm/
-- case-study-marketing-automation/
-- case-study-abm-lifecycle/
-- writing/
-- sitemap.xml
-- robots.txt
-- 404.html
-- README.md
-- .nojekyll
-
-## Upload to profile README repository
-
-Repository: https://github.com/vadim-koenen/vadim-koenen
-
-Replace the existing README.md with the file inside:
-
-`UPLOAD_THIS_TO_vadim-koenen_PROFILE_REPO/README.md`
-
-## After upload
-
-Check these URLs:
-
-- https://vadim-koenen.github.io/
-- https://vadim-koenen.github.io/resume/
-- https://vadim-koenen.github.io/marketo/
-- https://vadim-koenen.github.io/revops/
-- https://vadim-koenen.github.io/abm/
-- https://vadim-koenen.github.io/writing/
-- https://vadim-koenen.github.io/sitemap.xml
-- https://github.com/vadim-koenen
+Private HubSpot app tokens belong in Netlify environment variables for a future Netlify Functions integration. Do not commit private tokens or call private HubSpot CRM APIs from frontend JavaScript.
