@@ -1,6 +1,6 @@
 # Deployment Notes
 
-These notes replace the older GitHub Pages upload package instructions.
+These notes replace the older manual upload package instructions.
 
 ## Current Stack
 
@@ -17,7 +17,7 @@ These notes replace the older GitHub Pages upload package instructions.
 4. Merge when the preview is approved.
 5. Netlify deploys production from `main`.
 
-Do not manually upload files as a GitHub Pages deployment step.
+Do not manually upload files as a deployment step.
 
 ## HubSpot Safety Boundary
 

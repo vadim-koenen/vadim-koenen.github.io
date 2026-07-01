@@ -1,6 +1,6 @@
 # Superseded Upload Instructions
 
-This repository is no longer treated as a manual GitHub Pages upload target.
+This repository is no longer treated as a manual upload target.
 
 Current deployment stack:
 
