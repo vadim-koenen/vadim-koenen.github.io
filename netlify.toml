@@ -1,6 +1,10 @@
 [build]
   publish = "."
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # Static HTML site: Netlify serves the repository root.
 # Deploy previews inherit the same static publish directory and do not require
 # real HubSpot portal, form, or meetings IDs.

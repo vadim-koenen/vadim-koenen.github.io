@@ -112,28 +112,66 @@ window.KRS_HUBSPOT_CONFIG = {
 Future private HubSpot CRM automation must use Netlify environment variables with Functions scope.
 
 - `HUBSPOT_PRIVATE_APP_TOKEN` belongs in Netlify environment variables.
+- The Netlify Function reads the private token only from `process.env.HUBSPOT_PRIVATE_APP_TOKEN`.
 - Never commit `HUBSPOT_PRIVATE_APP_TOKEN`.
 - Never expose private tokens in frontend JavaScript.
 - Frontend code must not call private HubSpot CRM APIs directly.
 
+## HubSpot CRM Automation Setup
+
+Phase 2 adds the server-side Netlify Function at:
+
+```text
+/.netlify/functions/hubspot-intake
+```
+
+Source file:
+
+```text
+netlify/functions/hubspot-intake.mjs
+```
+
+Setup steps:
+
+1. Create a HubSpot Private App.
+2. Add only the scopes needed for enabled features:
+   - Contacts read/write
+   - Companies read/write
+   - Deals read/write only when deal creation is enabled
+   - Tickets read/write only when ticket creation is enabled
+   - Schemas write only for a future property setup script
+3. Copy the Private App token into Netlify as `HUBSPOT_PRIVATE_APP_TOKEN`.
+4. Scope the token to Netlify Functions only if the Netlify UI supports that for the site.
+5. Set optional env vars as needed:
+
+```bash
+HUBSPOT_PORTAL_ID=244355981
+HUBSPOT_DEFAULT_OWNER_ID=
+HUBSPOT_KRS_PIPELINE_ID=
+HUBSPOT_KRS_DISCOVERY_STAGE_ID=
+HUBSPOT_KRS_QUALIFIED_STAGE_ID=
+HUBSPOT_ENABLE_DEAL_CREATION=false
+HUBSPOT_ENABLE_COMPANY_CREATION=true
+HUBSPOT_ENABLE_TICKET_CREATION=false
+```
+
+6. Redeploy Netlify after adding or changing environment variables.
+7. Test with a non-sensitive test contact.
+8. Confirm the expected contact, company, and optional deal records appear in HubSpot.
+
+The function accepts JSON submissions for `audit`, `systems_review`, and `recruiter` routes. It validates required fields, rejects huge payloads, supports honeypot fields, avoids logging full PII, and never exposes the private token to browser code.
+
+See `docs/hubspot-crm-automation.md` for payload shape, optional KRS properties, and the future property setup script notes.
+
 ## Phase 2 Roadmap: Netlify Functions
 
-A later, explicitly approved PR can add a server-side function:
+The current server-side function establishes the intake path. Future explicitly approved work can extend it with:
 
-- File: `netlify/functions/hubspot-lead.mjs`
-- Accept website form payload.
-- Validate required fields.
-- Call HubSpot CRM APIs server-side using `process.env.HUBSPOT_PRIVATE_APP_TOKEN` or Netlify's server-side environment access.
-- Create or update a contact.
-- Create or associate a company when the inquiry includes enough company context.
-- Create or update lifecycle stage based on the intake path and qualification status.
-- Create a deal for a qualified consulting or systems-review inquiry.
-- Optionally create a ticket only for support-style requests.
-- Add custom KRS properties such as inquiry type, requested service, audit interest, recruiter/hiring flag, source path, and qualification notes.
-- Return a JSON response to the frontend.
 - Add rate limiting and spam protection before going live.
+- Add a reviewed `scripts/hubspot-setup-properties.mjs` property setup script.
+- Add custom website forms that submit to the Netlify Function if replacing HubSpot-hosted forms becomes desirable.
 
-Do not implement live HubSpot CRM writes without explicit approval.
+Do not enable or live-test HubSpot CRM writes until the Netlify environment variables are configured and the test contact plan is explicitly approved.
 
 ## Cloudflare Notes
 
